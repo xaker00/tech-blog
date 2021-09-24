@@ -1,0 +1,12 @@
+[
+  {
+    "author": 1,
+    "title": "First blog post",
+    "body": "This is my very first blog post. Hope you all enjoy reading it."
+  },
+  {
+    "author": 2,
+    "title": "This is a very cool platform",
+    "body": "I'm excited to be a part of this blog!"
+  }
+]

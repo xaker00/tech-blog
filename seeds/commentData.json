@@ -1,0 +1,12 @@
+[
+  {
+    "postId": 1,
+    "userId": 2,
+    "comment": "Awesome!👏"
+  },
+  {
+    "postId": 1,
+    "userId": 1,
+    "comment": "Thank you!!!!!"
+  }
+]
