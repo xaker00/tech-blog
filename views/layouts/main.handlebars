@@ -19,7 +19,8 @@
 
     <nav>
       <div class="nav-wrapper teal darken-2">
-        <a href="#" class="brand-logo">Tech Blog</a>
+        <a href="/" class="brand-logo">&nbsp;Tech Blog</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/">Home</a></li>
           <li><a href="/dashboard">Dashboard</a></li>
@@ -32,7 +33,19 @@
         </ul>
       </div>
     </nav>
-    <div class="row" style="width:50%; margin-top: 20px;">
+
+    <ul class="sidenav" id="mobile-demo">
+    <li><a href="/">Home</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          {{#if loggedIn}}
+          <li><a href="#" id='logout-button'>Logout</a></li>
+          {{else}}
+          <li><a href="/login">login</a></li>
+          {{/if}}
+  </ul>
+
+
+    <div class="row" style="max-width:1000px; margin-top: 20px;">
 
       {{{body}}}
       {{>modal}}
@@ -44,6 +57,12 @@
     ></script>
     <script src="/js/login.js">
       
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems);
+  });
     </script>
   </body>
 </html>
