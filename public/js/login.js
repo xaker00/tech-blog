@@ -3,7 +3,6 @@ const loginButton = document.querySelector("#login-button");
 if (loginButton) {
   loginButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("logging in...");
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
     const body = { email: email, password: password };
@@ -17,11 +16,15 @@ if (loginButton) {
     }).then((response) => {
       if (response.status === 200) {
         // logged in
-        location.assign("/");
+        if(1){
+          const interval = setInterval(() => {
+            clearInterval(interval);
+            location.assign("/");
+          }, 1000);
+        }
       } else {
         showModal("Unauthorized", "User or password is incorrect.");
       }
-      console.log("response", response);
     });
   });
 }
@@ -36,8 +39,7 @@ if (logoutButton) {
     });
     console.log("logging out...");
   });
-}else{
-  console.log("logoutButton not found");
+} else {
 }
 
 const registerButton = document.querySelector("#register-button");
@@ -45,6 +47,29 @@ const registerButton = document.querySelector("#register-button");
 if (registerButton) {
   registerButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("registering...");
+    const email = document.querySelector("#reg-email").value;
+    const password = document.querySelector("#reg-password").value;
+    const name = document.querySelector("#reg-name").value;
+    const body = { email: email, password: password, name:name };
+    // console.log("logging in...", body);
+    fetch("/api/users/", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.status === 200) {
+        // logged in
+        if(1){
+          const interval = setInterval(() => {
+            clearInterval(interval);
+            location.assign("/");
+          }, 1000);
+        }
+      } else {
+        showModal("Error", "Something went wrong");
+      }
+    });
   });
 }
