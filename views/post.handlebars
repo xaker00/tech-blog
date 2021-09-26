@@ -11,14 +11,17 @@
         >{{this.user.name}} @ {{format_date this.createdAt}}</i></div><div
       >{{this.comment}}</div></div>
   {{/each}}
-  <div>
+  {{#if loggedIn}}
+  <div style="margin: 5px;">
     <div>
-      <textarea></textarea>
+      <textarea id="comment" style="margin-bottom: 5px;"></textarea>
     </div>
     <div class="right">
-      <a class="waves-effect waves-light btn">comment</a>
+      <a class="waves-effect waves-light btn" onclick="saveComment({{post.id}})">comment</a>
 
     </div>
 
   </div>
+  {{/if}}
 </div>
+<script src="/js/comment.js"></script>
