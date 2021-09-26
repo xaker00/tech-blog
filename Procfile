@@ -1,2 +1,2 @@
-web: node run start
+web: npm run start
 seed: npm run seed
