@@ -1,0 +1,24 @@
+<div class="card-content">
+  <p><h3>{{post.title}}</h3></p>
+  <p><i>{{post.user.name}} @ {{format_date post.createdAt}}</i></p>
+  <p>{{post.body}}</p>
+</div>
+<hr />
+<div class="">
+  <h6>Comments:</h6>
+  {{#each post.comments}}
+    <div class="z-depth-1" style="margin: 5px; padding: 5px;"><div><i
+        >{{this.user.name}} @ {{format_date this.createdAt}}</i></div><div
+      >{{this.comment}}</div></div>
+  {{/each}}
+  <div>
+    <div>
+      <textarea></textarea>
+    </div>
+    <div class="right">
+      <a class="waves-effect waves-light btn">comment</a>
+
+    </div>
+
+  </div>
+</div>

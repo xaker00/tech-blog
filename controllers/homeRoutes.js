@@ -7,7 +7,9 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const posts = await Post.findAll({
-      include: [{ model: Comment }, { model: User, through: Comment }],
+      include: [
+        { model: Comment, include: [{ model: User, attributes: ["name"] }] },
+      ],
     });
     let posts2;
 
@@ -16,10 +18,35 @@ router.get("/", async (req, res) => {
     // .get({ plain: true })),
     const data = {
       posts: posts2,
+      loggedIn: req.session.loggedIn,
     };
     // const data = posts;
     console.log("data", data);
     res.render("home", data);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
+router.get("/posts/:id", async (req, res) => {
+  try {
+    const post = await Post.findOne({
+      where:{id:req.params.id},
+      include: [
+        { model: Comment, include: [{ model: User, attributes: ["name"] }] },
+        { model: User },
+      ],
+    });
+
+    // TODO: add 404 page
+
+    const data = {
+      post: post.get({ plain: true }),
+      loggedIn: req.session.loggedIn,
+    };
+    // const data = posts;
+    console.log("data", data);
+    res.render("post", data);
   } catch (err) {
     res.status(500).json(err.message);
   }

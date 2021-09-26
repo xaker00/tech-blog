@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
     // handle "user not found case"
     if (!dbUserData) {
       res
-        .status(400)
+        .status(401)
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
     // handle incorrect
     if (!validPassword) {
       res
-        .status(400)
+        .status(401)
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
