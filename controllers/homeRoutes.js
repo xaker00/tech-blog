@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
       include: [
         { model: Comment, include: [{ model: User, attributes: ["name"] }] },
       ],
+      order: [['created_at','DESC']],
     });
     let posts2;
 
@@ -83,6 +84,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
       include: [
         { model: Comment, include: [{ model: User, attributes: ["name"] }] },
       ],
+      order: [['created_at','DESC']],
     });
     let posts2;
 
