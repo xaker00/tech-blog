@@ -1,68 +1,78 @@
+<!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
 
-    <title>{{title}}</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    <nav>
-      <div class="nav-wrapper teal darken-2">
-        <a href="/" class="brand-logo">&nbsp;Tech Blog</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/">Home</a></li>
-          <li><a href="/dashboard">Dashboard</a></li>
-          {{#if loggedIn}}
-          <li><a href="#" id='logout-button'>Logout</a></li>
-          {{else}}
-          <li><a href="/login">login</a></li>
-          {{/if}}
+  <script src="https://cdn.tiny.cloud/1/pgnzzhb8lfkpsf2mcmcpg0aukiqvfjy1l6qk0js7atg973ze/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
 
-        </ul>
-      </div>
-    </nav>
+  <link rel="stylesheet" href="/css/style.css" />
 
-    <ul class="sidenav" id="mobile-demo">
+  <title>{{title}}</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper teal darken-2">
+      <a href="/" class="brand-logo">&nbsp;Tech Blog</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        {{#if loggedIn}}
+        <li><a href="#" id='logout-button'>Logout</a></li>
+        {{else}}
+        <li><a href="/login">login</a></li>
+        {{/if}}
+
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
     <li><a href="/">Home</a></li>
-          <li><a href="/dashboard">Dashboard</a></li>
-          {{#if loggedIn}}
-          <li><a href="#" id='logout-button'>Logout</a></li>
-          {{else}}
-          <li><a href="/login">login</a></li>
-          {{/if}}
+    <li><a href="/dashboard">Dashboard</a></li>
+    {{#if loggedIn}}
+    <li><a href="#" id='logout-button'>Logout</a></li>
+    {{else}}
+    <li><a href="/login">login</a></li>
+    {{/if}}
   </ul>
 
 
-    <div class="row" style="max-width:1000px; margin-top: 20px;">
+  <div class="row" style="max-width:1000px; margin-top: 20px;">
 
-      {{{body}}}
-      {{>modal}}
-    </div>
+    {{{body}}}
+    {{>modal}}
+  </div>
 
-    <!-- Compiled and minified JavaScript -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"
-    ></script>
-    <script src="/js/login.js">
-      
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.sidenav');
-    const instances = M.Sidenav.init(elems);
-  });
-    </script>
-  </body>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="/js/login.js">
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const elems = document.querySelectorAll('.sidenav');
+      const instances = M.Sidenav.init(elems);
+
+
+      tinymce.init({
+        selector: '.textarea-rich',
+        menubar: "edit insert format",
+        plugins: 'link image table',
+      });
+
+
+    });
+  </script>
+</body>
+
 </html>

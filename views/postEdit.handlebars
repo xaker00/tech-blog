@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="input-field col s12">
+    <input id="title" type="text" class="validate" required value="{{post.title}}" />
+    <label for="title">Title</label>
+  </div>
+  <div class="col s12">
+    <textarea class="textarea-rich" id="post-editor">{{{post.body}}}</textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col right">
+    <a class="waves-effect waves-light btn" onclick="save({{id}})">Save<i
+        class="material-icons right"
+      >save</i></a>
+  </div>
+</div>
+
+<script src="/js/post-edit.js"></script>

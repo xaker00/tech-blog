@@ -1,0 +1,3 @@
+.textarea-rich {
+    min-height: calc(100vh - 85px);
+}

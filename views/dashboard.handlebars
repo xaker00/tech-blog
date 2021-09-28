@@ -1,0 +1,38 @@
+<div>
+  <div class="row">
+    <div class="col s12">
+      <h5>Welcome {{name}}</h5>
+    </div>
+    <div class="col s12">
+      <a class="waves-effect waves-light btn" href="/edit-post/0">New Post</a>
+
+    </div>
+  </div>
+  {{#each posts}}
+
+    <div class="row">
+      <div class="col s12">
+        <a href="/posts/{{this.id}}">
+          <div class="card teal darken-2">
+            <div class="card-content white-text">
+              <div>
+                <div class="card-title">{{this.title}}
+                  <div class="right">{{format_date this.createdAt}}</div>
+                </div>
+
+              </div>
+              <div><p>{{{body}}}</p></div>
+            </div>
+            <div class="card-action">
+              <a href="/edit-post/{{id}}">Edit</a>
+              <a href="#" onclick="deletePost({{id}})">Delete</a>
+            </div>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+  {{/each}}
+</div>
+<script src="/js/dashboard.js"></script>

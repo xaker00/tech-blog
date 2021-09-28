@@ -3,19 +3,19 @@
 
     <div class="row">
       <div class="col s12">
-        <a href="/posts/{{this.id}}" >
-        <div class="card teal darken-2">
-          <div class="card-content white-text">
-            <div>
-              <div class="card-title">{{this.title}}
-                <div class="right">{{format_date this.createdAt}}</div>
-              </div>
+        <a href="/posts/{{this.id}}">
+          <div class="card teal darken-2">
+            <div class="card-content white-text">
+              <div>
+                <div class="card-title">{{this.title}}
+                  <div class="right">{{format_date this.createdAt}}</div>
+                </div>
 
+              </div>
+              <div><p>{{{body}}}</p></div>
             </div>
-            <div><p>{{body}}</p></div>
+
           </div>
-          
-        </div>
         </a>
       </div>
     </div>
