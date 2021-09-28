@@ -22,6 +22,6 @@ const save = (id) => {
   })
     .then((r) => r.json())
     .then((res) => {
-      location.assign("/posts/" + res.id || id);
+      location.assign("/dashboard");
     });
 };
