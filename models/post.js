@@ -1,7 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const clip = require("text-clipper").default;
 
-class Post extends Model {}
+class Post extends Model {
+  snippet() {
+    return clip(this.body, 140, { html: true, maxLines: 5 });
+  }
+}
 
 Post.init(
   {

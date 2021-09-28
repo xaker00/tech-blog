@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
     let posts2;
 
     posts2 = posts.map((q) => q.get({ plain: true }));
+    posts2.forEach((q,i)=>{q.snippet = posts[i].snippet()});
 
     const data = {
       posts: posts2,
@@ -89,6 +90,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     let posts2;
 
     posts2 = posts.map((q) => q.get({ plain: true }));
+    posts2.forEach((q,i)=>{q.snippet = posts[i].snippet()});
 
     const data = {
       posts: posts2,
